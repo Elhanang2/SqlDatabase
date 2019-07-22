@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require("passport")
-
+const path = require('path');
 const users = require("./routes/api/users");
 const app = express();
 
@@ -14,8 +14,10 @@ app.use(
     })
 );
 
-
 app.use(bodyParser.json());
+
+//Routes
+app.use("/api/users", users);
 
 //DB Config
 const db = require("./config/keys").mongoURI;
@@ -37,18 +39,11 @@ app.use(passport.initialize());
 //passport config
 require("./config/passport")(passport);
 
-if (process.env.NODE_ENV === 'production') {
-    // Exprees will serve up production assets
-    app.use(express.static('client/build'));
-  
-    // Express serve up index.html file if it doesn't recognize route
-    const path = require('path');
-    app.get('*', (req, res) => {
-      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-    });
-  }
+app.use(express.static(path.join(__dirname, "..", "client", "build")))
 
-//Routes
-app.use("/api/users", users);
+app.get('*', (req, res) => {
+  res.sendFile( path.join(__dirname, "..", "client", "build", "index.html"))
+})
 
+// launch our backend into a port
 app.listen(port, () => console.log(`Server running on port ${port} !`))
