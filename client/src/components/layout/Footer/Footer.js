@@ -1,7 +1,6 @@
 import React from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter, MDBListGroup } from "mdbreact";
-import {Link} from 'react-router-dom'
-// import Page1 from "./Page1"
+
 
 const FooterPage = () => {
   return (
@@ -51,7 +50,7 @@ const FooterPage = () => {
       </MDBContainer>
       <div className="footer-copyright text-center py-3">
         <MDBContainer fluid>
-          &copy; {new Date().getFullYear()} Copyright: <a href="#"> sami@Database </a>
+          &copy; {new Date().getFullYear()} Copyright: <a href="/#"> sami@Database </a>
         </MDBContainer>
       </div>
     </MDBFooter>
