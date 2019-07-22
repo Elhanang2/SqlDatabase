@@ -1,10 +1,10 @@
+require("dotenv").config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require("passport")
-require("dotenv").config();
-const users = require("./routes/api/users");
 
+const users = require("./routes/api/users");
 const app = express();
 
 //Bodyparser middleware
@@ -13,21 +13,22 @@ app.use(
         extended: false
     })
 );
+
+
 app.use(bodyParser.json());
 
 //DB Config
 const db = require("./config/keys").mongoURI;
 
 //Connect to MongoDB
-mongoose
-    .connect(
+mongoose.connect(
         db, {
             useNewUrlParser: true
         }
     )
     .then(() => console.log("MongoDB successfully connected"))
     .catch(err => console.log(err));
-
+    
 const port = process.env.PORT || 7000;
 
 //passport middleware
