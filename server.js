@@ -16,6 +16,7 @@ app.use(
 
 app.use(bodyParser.json());
 
+app.use(logger("dev"));
 //Routes
 app.use("/api/users", users);
 
