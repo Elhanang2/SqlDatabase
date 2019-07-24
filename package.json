@@ -7,7 +7,7 @@
     "client-install": "npm install --prefix client",
     "start": "node src/index.js",
     "server": "nodemon server.js",
-    "build": "webpack" ,
+    "build": "webpack",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
@@ -26,7 +26,8 @@
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
-    "validator": "^11.1.0"
+    "validator": "^11.1.0",
+    "webpack": "^4.37.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
