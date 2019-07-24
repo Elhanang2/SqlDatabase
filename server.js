@@ -27,29 +27,16 @@ app.get('*', (req, res) => {
 })
 
 //DB Config
-const dbRoute = require("./config/keys").mongoURI;
+const db = require("./config/keys").mongoURI;
 
-// this is our MongoDB database
-
-// connects our back end code with the database
-mongoose.connect (dbRoute, { useNewUrlParser: true });
-mongoose.set('useCreateIndex', true);
-
-
-let db = mongoose.connection;
-
-db.once("open", () => console.log("connected to the database"));
-
-// checks if connection with the database is successful
-db.on("error", console.error.bind(console, "MongoDB connection error:"));
 //Connect to MongoDB
-// mongoose.connect(
-//         db, {
-//             useNewUrlParser: true
-//         }
-//     )
-//     .then(() => console.log("MongoDB successfully connected"))
-//     .catch(err => console.log(err));
+mongoose.connect(
+        db, {
+            useNewUrlParser: true
+        }
+    )
+    .then(() => console.log("MongoDB successfully connected"))
+    .catch(err => console.log(err));
     
 
 //passport middleware
