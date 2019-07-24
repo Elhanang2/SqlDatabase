@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import {  MDBRow, MDBCol, MDBMedia } from "mdbreact";
 import Container from "../../../styling";
-import Carousel from "./Carousel";
+// import Carousel from "./Carousel";
 class About extends Component {
     state = {  }
     render() { 
         return ( 
           <Container>
-            <Carousel/>
+            {/*<Carousel/>*/}
             <MDBRow className="mx-4 about-me">
               <MDBMedia className="about-heading" >
                 <h2 className="mt-8 about-heading ">SCHOOL NAME </h2>
